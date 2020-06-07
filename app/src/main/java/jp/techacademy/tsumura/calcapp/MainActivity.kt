@@ -3,12 +3,11 @@ package jp.techacademy.tsumura.calcapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity: AppCompatActivity(),View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,24 +19,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         button4.setOnClickListener(this)
     }
 
-    override fun OnClick(v:View) {
+     override fun onClick(v:View) {
+         var num1="Edittext1.text".toInt()
+         var num2="Edittext2.text".toInt()
+         var ans="ans".toInt()
 
-        var answer={
-            if(v.id==R.id.button1){
-                "Edittext1+Edittext2"
-            }else if(v.id==R.id.button2){
-                "Edittext1-Edittext2"
-            }else if(v.id==R.id.button3){
-                "Edittext1*Edittext2"
-            }else if(v.id==R.id.button4){
-                "Edittext1/Edittext2"
-            }
+         if (v.id==R.id.button1){
+             ans=num1+num2
+         }else if(v.id==R.id.button2){
+             ans=num1-num2
+         }else if(v.id==R.id.button3){
+             ans=num1*num2
+         }else if(v.id==R.id.button4){
+             ans=num1/num2
+         }
+         intent=Intent(this,Answer::class.java)
+         intent.putExtra("答え",ans)
+         startActivity(intent)
+     }
 
-        }
-
-        val intent=Intent(this.Answer::class.java)
-        Intent.putExtra("answer",Double)
-        startActivity(intent)
-
-    }
 }

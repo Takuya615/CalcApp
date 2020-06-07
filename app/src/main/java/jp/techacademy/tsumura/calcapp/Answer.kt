@@ -2,6 +2,8 @@ package jp.techacademy.tsumura.calcapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_answer.*
+import android.view.View
 
 class Answer : AppCompatActivity() {
 
@@ -9,6 +11,7 @@ class Answer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer)
 
-        textView.text="${intent.getIntExtra("answer",0)}"
+        val num=intent.getIntExtra("答え",0)
+        answer.text="ans"
     }
 }
