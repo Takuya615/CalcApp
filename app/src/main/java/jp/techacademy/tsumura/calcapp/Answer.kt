@@ -11,7 +11,7 @@ class Answer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer)
 
-        val num=intent.getIntExtra("答え",0)
-        answer.text="ans"
+        var num=intent.getDoubleExtra("答え",0.0)
+        answer.text="$num"
     }
 }
