@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v4.view.accessibility.AccessibilityEventCompat.setAction
 
 class MainActivity:AppCompatActivity(),View.OnClickListener {
 
@@ -23,7 +24,7 @@ class MainActivity:AppCompatActivity(),View.OnClickListener {
 
          var num1:Double=Edittext1.text.toString().toDouble()
          var num2:Double=Edittext2.text.toString().toDouble()
-         var Ans:Double=0.0
+         var Ans:Double?=null
 
          if (v.id==R.id.button1){
              Ans=num1+num2
@@ -34,9 +35,11 @@ class MainActivity:AppCompatActivity(),View.OnClickListener {
          }else if(v.id==R.id.button4){
              Ans=num1/num2
          }
+
          intent=Intent(this,Answer::class.java)
          intent.putExtra("答え",Ans)
          startActivity(intent)
+
      }
 
 }
