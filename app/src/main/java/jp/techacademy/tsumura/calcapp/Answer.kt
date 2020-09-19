@@ -13,5 +13,6 @@ class Answer : AppCompatActivity() {
 
         var num=intent.getDoubleExtra("答え",0.0)
         answer.text="$num"
+
     }
 }
